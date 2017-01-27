@@ -21,47 +21,41 @@
             http://www.springframework.org/schema/data/jpa 
             http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    		
-    <jpa:repositories base-package="name.brucephillips.springjpaexample.repository" />		
-    
-    <!-- scans the classpath for annotated components (including @Repostory 
-    and @Service  that will be auto-registered as Spring beans  -->          
-    <context:component-scan base-package="name.brucephillips.springjpaexample" />
+    <jpa:repositories base-package="name.brucephillips.springjpaexample.repository"/>
 
- 	<!-- Creates a data source that can provide a connection to in-memory embedded database populated 
-	with test data
-	see: http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/ch12s08.html   -->
-   <jdbc:embedded-database id="dataSource">
+    <!-- scans the classpath for annotated components (including @Repostory 
+    and @Service  that will be auto-registered as Spring beans  -->
+    <context:component-scan base-package="name.brucephillips.springjpaexample"/>
+
+    <!-- Creates a data source that can provide a connection to in-memory embedded database populated
+   with test data
+   see: http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/ch12s08.html   -->
+    <jdbc:embedded-database id="dataSource">
         <jdbc:script location="classpath:schema.sql"/>
         <jdbc:script location="classpath:test-data.sql"/>
     </jdbc:embedded-database>
-   
-    
+
     <!-- This will ensure that hibernate or jpa exceptions are automatically translated into
          Spring's generic DataAccessException hierarchy for those classes annotated with Repository
          For example see UserDaoJpa-->
     <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>
-    
+
     <!-- JPA Entity Manager Factory -->
-    <bean id="entityManagerFactory" 
+    <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
           p:dataSource-ref="dataSource"
-          p:persistenceXmlLocation="META-INF/persistence.xml" 
-    	  p:persistenceUnitName="springJpaPersistenceUnit_TEST" />          
+          p:persistenceXmlLocation="META-INF/persistence.xml"
+          p:persistenceUnitName="springJpaPersistenceUnit_TEST"/>
 
-    
     <!-- bean post-processor for JPA annotations -->
-    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor"/>
 
- 
     <!-- Transaction Config -->
     <bean id="transactionManager"
           class="org.springframework.orm.jpa.JpaTransactionManager"
           p:entityManagerFactory-ref="entityManagerFactory"/>
 
     <!-- use declarative transaction management  -->
-    <tx:annotation-driven  transaction-manager="transactionManager"/>
-      
-    
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
- </beans>
+</beans>
