@@ -64,7 +64,7 @@ To run the application on the Jetty Servlet container use `mvn -e jetty:run`
 
 Once you see [INFO] Started Jetty Server in the console output, open a web browser and navigate to:
 
-     http://localhost:8080/strutsspringdataexample/index.jsp
+[http://localhost:8080/index.jsp](http://localhost:8080/index.jsp)
      
 Enter 1, 2, or 3 in the employee ID text box.
 
