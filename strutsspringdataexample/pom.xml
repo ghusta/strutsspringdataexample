@@ -13,7 +13,7 @@
     </description>
 
     <prerequisites>
-        <maven>3.0</maven>
+        <maven>3.3</maven>
     </prerequisites>
 
     <properties>
@@ -220,11 +220,25 @@
                 </configuration>
             </plugin>
 
+            <!-- TODO: use Jetty 9.3+ (https://wiki.eclipse.org/Jetty/Starting/Jetty_Version_Comparison_Table) -->
+            <!-- http://www.eclipse.org/jetty/documentation/current/jetty-maven-plugin.html -->
             <plugin>
-                <groupId>org.mortbay.jetty</groupId>
-                <artifactId>maven-jetty-plugin</artifactId>
-                <version>6.1.26</version>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>9.4.1.v20170120</version>
+                <configuration>
+                    <scanIntervalSeconds>10</scanIntervalSeconds>
+                    <webApp>
+                        <contextPath>/</contextPath>
+                    </webApp>
+                </configuration>
             </plugin>
+            <!--<plugin>-->
+            <!--<groupId>org.mortbay.jetty</groupId>-->
+            <!--<artifactId>maven-jetty-plugin</artifactId>-->
+            <!--<version>6.1.26</version>-->
+            <!--</plugin>-->
+
         </plugins>
     </build>
 

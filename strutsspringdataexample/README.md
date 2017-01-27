@@ -2,14 +2,14 @@
 
 ## Introduction
 
-This project is an example of how to use Struts 2, Spring 3, Spring Data JPA 1.0, JPA 2 
-(with Hibernate 3.5 as the JPA provider) and Maven to configure a
-web application.  Spring release milestone 2 of its Spring Data JPA artifacts.
+This project is an example of how to use 
+- Struts 2, 
+- Spring 4, 
+- Spring Data JPA 1.x, 
+- JPA 2.1 (with Hibernate 5 as the JPA provider) 
+- and Maven to configure a web application.  
 
 To run the tests and application you will need Maven installed on your computer.
-
-To create the JavaDoc run mvn javadoc:javadoc.  To view the JavaDoc refresh the 
-target folder and navigate to target/site/apidocs and open index.html in a web browser.
 
 ## Project Configuration
 
@@ -17,16 +17,16 @@ The application uses the configuration described in section 13.5 of the Spring 3
 (http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/orm.html#orm-jpa)
 to setup Spring integration with JPA.  
 
-The application also uses the Spring Data JPA library to have Spring automatically 
+The application also uses the **Spring Data JPA** library to have Spring automatically 
 create a PersonRepository bean to manage interaction between Person objects and the 
 data repository.  The PersonRepository bean Spring creates is based 
 on the PersonRepository interface in the repository package.
-See - http://www.springsource.org/spring-data for more information about Spring Data JPA.
+See http://www.springsource.org/spring-data for more information about Spring Data JPA.
 
-The JPA persistence.xml file is found in src/test/resources/META-INF for testing and for the 
+The JPA _persistence.xml_ file is found in src/test/resources/META-INF for testing and for the 
 deployed webapp the persistence.xml file is in src/main/webapp/META-INF.  
 
-The Spring configuration file for the tests--applicationContextTest.xml--is found in 
+The Spring configuration file for the tests _applicationContextTest.xml_ is found in 
 src/test/resources.  The Spring configuration file for the web application is found 
 in src/main/resources.
 
@@ -42,8 +42,8 @@ The model classes use JPA 2 annotations to identify how a model class is related
 database table.
 
 The service class uses Spring's @Service annotation to mark the class as one Spring should
-automatically create an instance of in the Inversion of Control container.  Using the Struts 2 
-Spring plugin (see the pom.xml) will cause Spring to inject the services classes into the 
+automatically create an instance of in the Inversion of Control container.  Using the **Struts 2 
+Spring plugin** (see the pom.xml) will cause Spring to inject the services classes into the 
 Struts 2 Action Support classes.
 
 The service class also uses the JPA @PersistenceContext annotation to mark which 
@@ -60,7 +60,7 @@ should be in this folder).
 
 To run the tests use `mvn -e clean test`.
 
-To run the application on the Jetty Servlet container use mvn -e jetty:run
+To run the application on the Jetty Servlet container use `mvn -e jetty:run`
 
 Once you see [INFO] Started Jetty Server in the console output, open a web browser and navigate to:
 
@@ -87,4 +87,4 @@ To stop the Jetty Servlet container type control-c in the terminal.
 - Update dependencies (Spring 4, Struts2, Hibernate 5, ...)
 - Update deployment descriptors (web.xml, persistence.xml)
 - Update to Java 8 
-- Update to Tomcat 8 specs (Servlet 3.1)
+- Update to Tomcat 8 / Jetty 9 specs (Servlet 3.1)
