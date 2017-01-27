@@ -1,6 +1,6 @@
-strutsspringdataexample project
+# strutsspringdataexample project
 
-Introduction
+## Introduction
 
 This project is an example of how to use Struts 2, Spring 3, Spring Data JPA 1.0, JPA 2 
 (with Hibernate 3.5 as the JPA provider) and Maven to configure a
@@ -11,8 +11,7 @@ To run the tests and application you will need Maven installed on your computer.
 To create the JavaDoc run mvn javadoc:javadoc.  To view the JavaDoc refresh the 
 target folder and navigate to target/site/apidocs and open index.html in a web browser.
 
-Project Configuration
-
+## Project Configuration
 
 The application uses the configuration described in section 13.5 of the Spring 3.0 documentation
 (http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/orm.html#orm-jpa)
@@ -35,7 +34,6 @@ The Spring configuration file creates a LocalContainerEntityManagerFactoryBean o
 and provides it with the data source, location of the persistence.xml file, and the 
 name of the persistence unit to use.
 
-
 The persistence.xml file defines the persistence unit including what classes are to be
 JPA entities, what is the JPA provider (Hibernate), and the properties for the JPA 
 provider.
@@ -48,21 +46,19 @@ automatically create an instance of in the Inversion of Control container.  Usin
 Spring plugin (see the pom.xml) will cause Spring to inject the services classes into the 
 Struts 2 Action Support classes.
 
-The service class     
-also uses the JPA @PersistenceContext annotation to mark which 
+The service class also uses the JPA @PersistenceContext annotation to mark which 
 instance field Spring should use to inject the EntityManager object.  
 The PersonRepository bean that Spring creates will use that EntityManager object.   
 
 In the service class the PersonRepository that is needed is annotated with Spring's @Autowired annotation.
   
-
-Testing, Building, and Running The Application Using Maven
+## Testing, Building, and Running The Application Using Maven
  
 After downloading the zipped project archive, unzip it.  Navigate to the 
 project's root folder - root folder is named strutsspringdataexample (the pom.xml file 
 should be in this folder).
 
-To run the tests use mvn -e clean test.
+To run the tests use `mvn -e clean test`.
 
 To run the application on the Jetty Servlet container use mvn -e jetty:run
 
@@ -74,36 +70,21 @@ Enter 1, 2, or 3 in the employee ID text box.
 
 To stop the Jetty Servlet container type control-c in the terminal.
 
-References:
+## References:
 
-http://www.springsource.org/spring-data, Spring Data
+- http://www.springsource.org/spring-data, Spring Data
+- http://static.springsource.org/spring-data/data-jpa/docs/1.0.0.M2/reference/html, Spring Data JPA - Reference Documentation
+- http://static.springsource.org/spring-data/data-jpa/docs/1.0.0.M2/api/, Spring Data JPA API
+- http://blog.springsource.com/2011/02/10/getting-started-with-spring-data-jpa/, Getting Started with Spring Data JPA, February 10, 2011
+- http://www.apress.com/book/view/9781430226321; Spring Persistence with Hibernate; Paul Tepper Fisher and Brian D. Murphy; Apress Publishing; 2010
+- http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/orm.html#orm-jpa; Section 13.5 JPA, Spring Framework Reference Documentation 3.0
+- http://www.theserverside.com/tutorial/Hibernate-35-Without-Hibernate-Ridding-Your-Code-of-the-Hiberante-API-Calls, Hibernate 3.5 Without Hibernate: Migrating to the Java Persistence API, By Andrew Tee & Cameron McKenzie, TheServerSide.com
+- http://docs.jboss.org/hibernate/entitymanager/3.6/reference/en/html/, Hibernate EntityManager, Introducing JPA Persistence, September 30, 2010
+- http://download.oracle.com/javaee/6/api/index.html?javax/persistence/package-summary.html, JEE 6 JPA 2 API
 
-http://static.springsource.org/spring-data/data-jpa/docs/1.0.0.M2/reference/html,
-Spring Data JPA - Reference Documentation
+## Refactoring
 
-http://static.springsource.org/spring-data/data-jpa/docs/1.0.0.M2/api/,
-Spring Data JPA API
-
-http://blog.springsource.com/2011/02/10/getting-started-with-spring-data-jpa/,
-Getting Started with Spring Data JPA, February 10, 2011
-
-http://www.apress.com/book/view/9781430226321; Spring Persistence with Hibernate;
-Paul Tepper Fisher and Brian D. Murphy; Apress Publishing; 2010
-
-http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/orm.html#orm-jpa; 
-Section 13.5 JPA, Spring Framework Reference Documentation 3.0
-
-http://www.theserverside.com/tutorial/Hibernate-35-Without-Hibernate-Ridding-Your-Code-of-the-Hiberante-API-Calls,
-Hibernate 3.5 Without Hibernate: Migrating to the Java Persistence API, By Andrew Tee & Cameron McKenzie,
-TheServerSide.com
-
-http://docs.jboss.org/hibernate/entitymanager/3.6/reference/en/html/, Hibernate EntityManager, Introducing
-JPA Persistence, September 30, 2010
-
-http://download.oracle.com/javaee/6/api/index.html?javax/persistence/package-summary.html, 
-JEE 6 JPA 2 API
-
-
-
-
-
+- Update dependencies (Spring 4, Struts2, Hibernate 5, ...)
+- Update deployment descriptors (web.xml, persistence.xml)
+- Update to Java 8 
+- Update to Tomcat 8 specs (Servlet 3.1)

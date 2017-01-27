@@ -1,5 +1,5 @@
 /**
- * 
+ *
  */
 package name.brucephillips.springjpaexample.action;
 
@@ -8,70 +8,71 @@ import name.brucephillips.springjpaexample.service.PersonService;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-
 /**
- * Controller used to respond to user request 
+ * Controller used to respond to user request
  * to find a specific Person using the person's
  * employee ID.
- * @author bphillips
  *
+ * @author bphillips
  */
-public class PersonFinder extends ActionSupport {
+public class PersonFinder extends ActionSupport
+{
 
+    private static final long serialVersionUID = 1L;
 
-	private static final long serialVersionUID = 1L;
-	
-	/**
-	 * employee ID of the person to find.
-	 */
-	private Long emplid;
-	
-	/**
-	 * Person found using the emplid.
-	 */
-	private Person person;
-	
-	/**
-	 * Provides methods to get Person objects.
-	 */
-	private  transient PersonService personService;
-	
-	
-	@Override
-	public String execute() throws Exception {
-		
-		person = personService.findByEmplid(emplid);
-		
-		return SUCCESS;
-		
-	}
+    /**
+     * employee ID of the person to find.
+     */
+    private Long emplid;
 
-	public Long getEmplid() {
-		return emplid;
-	}
+    /**
+     * Person found using the emplid.
+     */
+    private Person person;
 
-	public void setEmplid(Long emplid) {
-		this.emplid = emplid;
-	}
+    /**
+     * Provides methods to get Person objects.
+     */
+    private transient PersonService personService;
 
-	public Person getPerson() {
-		return person;
-	}
+    @Override
+    public String execute() throws Exception
+    {
 
-	public void setPerson(Person person) {
-		this.person = person;
-	}
+        person = personService.findByEmplid(emplid);
 
-	public PersonService getPersonService() {
-		return personService;
-	}
+        return SUCCESS;
 
-	public void setPersonService(PersonService personService) {
-		this.personService = personService;
-	}
-	
-	
-	
-	
+    }
+
+    public Long getEmplid()
+    {
+        return emplid;
+    }
+
+    public void setEmplid(Long emplid)
+    {
+        this.emplid = emplid;
+    }
+
+    public Person getPerson()
+    {
+        return person;
+    }
+
+    public void setPerson(Person person)
+    {
+        this.person = person;
+    }
+
+    public PersonService getPersonService()
+    {
+        return personService;
+    }
+
+    public void setPersonService(PersonService personService)
+    {
+        this.personService = personService;
+    }
 
 }
