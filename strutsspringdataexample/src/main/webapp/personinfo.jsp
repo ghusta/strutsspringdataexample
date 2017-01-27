@@ -13,11 +13,11 @@
 
 <s:if test="person != null" >
 
-        <s:url action="inputPersonUpdate" id="editUrl">
+        <s:url action="inputPersonUpdate" var="editUrl">
            <s:param name="emplid" value="emplid"/>
         </s:url>
         
-        <s:url action="personDelete" id="deleteUrl">
+        <s:url action="personDelete" var="deleteUrl">
         	<s:param name="emplid" value="emplid"/>
         </s:url>
              
