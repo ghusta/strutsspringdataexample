@@ -1,12 +1,6 @@
 package name.brucephillips.springjpaexample.service;
 
-import static org.junit.Assert.*;
-
-import java.util.List;
-
 import name.brucephillips.springjpaexample.model.Person;
-import name.brucephillips.springjpaexample.service.PersonService;
-
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,8 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 @ContextConfiguration(locations = {"classpath:applicationContextTest.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -27,7 +24,7 @@ public class PersonServiceTest
     private static final Logger logger = Logger.getLogger(PersonServiceTest.class.getName());
 
     @Autowired
-    PersonService personService;
+    private PersonService personService;
 
     @Test
     public void testFindByEmplid()
@@ -80,7 +77,7 @@ public class PersonServiceTest
     }
 
     @Test
-    public void testUdate()
+    public void testUpdate()
     {
 
         Person person1 = new Person();
